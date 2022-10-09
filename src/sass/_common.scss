@@ -1,1 +1,24 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+body {
+    background-color: #fafafa;
+    color: #212121;
+    line-height: 1.5;
+  }
+
+  ul, div{
+  list-style: none;
+ }
+
+ .country-list__item{
+  display: flex;
+  align-items: center;
+ }
+
+  #search-box {
+    font: inherit;
+    padding: 8px;
+    max-width: 320px;
+    margin-bottom: 16px;
+  }
+  
