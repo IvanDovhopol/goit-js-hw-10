@@ -21,17 +21,11 @@ function onSearchCountry(e) {
       resetMarkup();
 
       if (country.length === 1) {
-        refs.countryInfo.insertAdjacentHTML(
-          'beforeend',
-          searchedCountryFoundMarkup(country)
-        );
+        renderCountryData('countryInfo', searchedCountryFoundMarkup, country);
       } else if (country.length >= 10) {
         tooManyResultsCountryAlert();
       } else {
-        refs.countryList.insertAdjacentHTML(
-          'beforeend',
-          markupPreview(country)
-        );
+        renderCountryData('countryList', markupPreview, country);
       }
     })
     .catch(countryNotFoundAlert);
@@ -40,4 +34,8 @@ function onSearchCountry(e) {
 function resetMarkup() {
   refs.countryInfo.innerHTML = '';
   refs.countryList.innerHTML = '';
+}
+
+function renderCountryData(position, render, country) {
+  refs[position].insertAdjacentHTML('beforeend', render(country));
 }
